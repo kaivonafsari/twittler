@@ -1,0 +1,72 @@
+.body {
+	padding-top: 5px;
+}
+
+.nav li {
+	display: inline;
+}
+
+.nav a {
+	color: #5a5a5a;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 14px 10px;
+	text-transform: uppercase;
+}
+
+.jumbotron {
+	background-image:url('img/unsplash_5288cc8f3571d_1.jfif');
+	background-attachment: fixed;
+	background-position: center;
+	height: 500px;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.jumbotron .container {
+	position: relative;
+	top: 100px;
+}
+
+.jumbotron h1 {
+	color: white;
+	font-size: 48px;
+	font-family: 'Bevan', cursive;
+	font-weight: bold;
+}
+
+.jumbotron p {
+	color: white;
+	font-size: 25px;
+	font-family: 'Bevan', cursive;
+}
+
+.learn-more {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.learn-more h3 {
+	color: DarkOrange;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: bold;
+	font-size: 35px;
+}
+
+.learn-more p {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 20px;
+}
+
+.learn-more a {
+	font-weight: bold;
+}
+
+.feed {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: Coral;
+	color: white;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 18px;
+}
