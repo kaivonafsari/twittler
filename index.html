@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="style.css"/>
     <script src="application.js" type="text/javascript"></script>
     <script src="jquery.js"></script>
+    <script src="jquery.timeago.js"></script>
     <script src="data_generator.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
@@ -57,8 +58,10 @@
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + "    " + tweet.created_at);
+          var links = $('<a href="#" class='+ tweet.user+'>' + '@'+tweet.user+'</a>')
+          $tweet.text(tweet.message + "    " + jQuery.timeago(tweet.created_at)); 
           $tweet.appendTo('.inside');
+          $('.inside').append(links)
           index -= 1;
         }
 
@@ -68,8 +71,10 @@
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + "    " + tweet.created_at);
+          var links = $('<a href="#" class='+ tweet.user+'>' + '@'+tweet.user+'</a>')
+          $tweet.text(tweet.message + "    " + jQuery.timeago(tweet.created_at)); 
           $tweet.appendTo('.inside');
+          $('.inside').append(links)
           index -= 1;
         }
 
