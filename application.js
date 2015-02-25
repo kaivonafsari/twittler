@@ -11,6 +11,8 @@ $(document).ready(function(){
         $body.html('');
 
         var index = streams.home.length - 1;
+        var tweet = streams.home[index]
+        
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');

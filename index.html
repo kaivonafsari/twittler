@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css"/>
-    <script src="application.js" type="text/javascript"></script>
+    
     <script src="jquery.js"></script>
     <script src="jquery.timeago.js"></script>
     <script src="data_generator.js"></script>
@@ -55,31 +55,54 @@
         
 
         var index = streams.home.length - 1;
+        var ntweets = function(newTweet){
+          var batman = newTweet;
+          var $tweet = $('<div class="tweet"></div>');
+          $tweet.data("user", batman.user)
+          $tweet.append('<a href="#" class='+ batman.user+'>' + '@'+batman.user+'</a>');
+          $tweet.append('<p>' + batman.message + '</p>' + ' ' +jQuery.timeago(batman.created_at))
+          $tweet.appendTo('.inside');
+          
+        };
+
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          var links = $('<a href="#" class='+ tweet.user+'>' + '@'+tweet.user+'</a>')
-          $tweet.text(tweet.message + "    " + jQuery.timeago(tweet.created_at)); 
-          $tweet.appendTo('.inside');
-          $('.inside').append(links)
+          ntweets(tweet);
           index -= 1;
         }
+
+        $('.inside').on('click', 'a', function(){
+          event.preventDefault();
+          var user = $(this).closest(".tweet").data('user');
+          $('.inside div').remove();
+          var index = streams.users[user].length -1
+
+
+          while (index >=0) {
+            var tweet = streams.users[user][index]
+            ntweets(tweet);
+            index -= 1;
+          }
+
+          
+        });
 
         $('button').on('click', function(){
-            
-            var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          var links = $('<a href="#" class='+ tweet.user+'>' + '@'+tweet.user+'</a>')
-          $tweet.text(tweet.message + "    " + jQuery.timeago(tweet.created_at)); 
-          $tweet.appendTo('.inside');
-          $('.inside').append(links)
-          index -= 1;
+          $('.inside div').remove();
+          var index = streams.home.length-1
+          
+          while(index >= 0){
+            var tweet = streams.home[index];
+            ntweets(tweet);
+            index -= 1;
         }
+        });
 
-         });
 
+        $('.tweet').on('click', function(){
+          $(this).fadeOut();
+        });
+        
       });
 
     </script>
